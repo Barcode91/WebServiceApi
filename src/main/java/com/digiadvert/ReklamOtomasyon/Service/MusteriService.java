@@ -14,7 +14,6 @@ public class MusteriService implements IMusteriService {
     public MusteriService(IMusteriDal musteriDal) {
         this.musteriDal = musteriDal;
     }
-    public MusteriService(){}
 
     @Override
     @Transactional
@@ -44,6 +43,7 @@ public class MusteriService implements IMusteriService {
     }
 
     @Override
+    @Transactional
     public Musteri getById(int id) {
         return this.musteriDal.getById(id);
     }

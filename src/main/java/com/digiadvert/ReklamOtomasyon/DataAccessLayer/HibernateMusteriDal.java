@@ -52,9 +52,9 @@ public class HibernateMusteriDal implements IMusteriDal {
     }
 
     @Override
-    public Musteri getById(int Id) {
+    public Musteri getById(int id) {
         Session session = entityManager.unwrap(Session.class);
-        Musteri musteri = session.get(Musteri.class,Id);
+        Musteri musteri = session.get(Musteri.class,id);
         return musteri;
     }
 

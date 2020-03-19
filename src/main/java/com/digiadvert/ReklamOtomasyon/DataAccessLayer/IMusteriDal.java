@@ -10,6 +10,6 @@ public interface IMusteriDal {
    void add (Musteri musteri);
    void update(Musteri musteri);
    void delete (Musteri musteri);
-   Musteri getById(int Id);
+   Musteri getById(int id);
 
 }

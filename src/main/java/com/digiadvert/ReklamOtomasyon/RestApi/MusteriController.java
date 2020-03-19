@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/müsteri")
 public class MusteriController {
     private IMusteriService musteriService;
 
@@ -16,7 +16,7 @@ public class MusteriController {
     public MusteriController(IMusteriService musteriService) {
         this.musteriService = musteriService;
     }
-    @GetMapping("/musteri")
+    @GetMapping("/musteriler")
     public List<Musteri> get (){
         System.out.println(this.musteriService.getAll().size());
         return this.musteriService.getAll();
@@ -39,7 +39,7 @@ public class MusteriController {
 
 
     }
-    @GetMapping("/musteri/{id}")
+    @GetMapping("/musteriler/{id}")
     public Musteri getId (@PathVariable int id){
         System.out.println(this.musteriService.getAll().size());
         return this.musteriService.getById(id);

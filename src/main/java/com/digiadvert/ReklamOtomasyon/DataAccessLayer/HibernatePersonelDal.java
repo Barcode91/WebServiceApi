@@ -36,7 +36,7 @@ public class HibernatePersonelDal implements IPersonelDal {
     @Transactional
     public void update(Personel personel) {
         Session session = entityManager.unwrap(Session.class);
-        session.saveOrUpdate(personel);
+        session.saveOrUpdate(personel); 
 
 
     }

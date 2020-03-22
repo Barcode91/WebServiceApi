@@ -13,7 +13,7 @@ public class Sirket {
     @Column(name="sirketNo")
     private String sirketNo;
 
-    @Column(name="sirketAdi")
+    @Column(name="sirket_adi")
     private String sirketAdi;
 
     @Column(name="sirketAdresi")

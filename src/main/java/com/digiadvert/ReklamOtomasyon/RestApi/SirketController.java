@@ -38,7 +38,7 @@ public class SirketController {
 
 
     }
-    @GetMapping("/musteriler/{id}")
+    @GetMapping("/sirketler/{id}")
     public Sirket getId (@PathVariable int id){
         System.out.println(this.sirketService.getAll().size());
         return this.sirketService.getById(id);

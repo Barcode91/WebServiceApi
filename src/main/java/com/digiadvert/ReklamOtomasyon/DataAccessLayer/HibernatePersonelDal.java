@@ -45,7 +45,8 @@ public class HibernatePersonelDal implements IPersonelDal {
     @Transactional
     public void delete(Personel personel) {
         Session session = entityManager.unwrap(Session.class);
-        session.delete(personel);
+        Personel personelToDelete = session.get(Personel.class,personel.getId());
+        session.delete(personelToDelete);
 
     }
 

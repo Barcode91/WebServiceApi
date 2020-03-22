@@ -2,6 +2,7 @@ package com.digiadvert.ReklamOtomasyon.RestApi;
 
 import com.digiadvert.ReklamOtomasyon.HibernateEntities.Sirket;
 import com.digiadvert.ReklamOtomasyon.Service.ISirketService;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

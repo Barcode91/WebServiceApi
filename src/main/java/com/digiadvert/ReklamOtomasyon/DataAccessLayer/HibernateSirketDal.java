@@ -44,7 +44,8 @@ public class HibernateSirketDal implements ISirketDal {
     @Transactional
     public void delete(Sirket sirket) {
         Session session = entityManager.unwrap(Session.class);
-        session.delete(sirket);
+        Sirket sirketToDelete = session.get(Sirket.class,sirket.getId()); // Veri tabanından ilgili id nesnesi tekrar çekilir
+        session.delete(sirketToDelete);
 
     }
 

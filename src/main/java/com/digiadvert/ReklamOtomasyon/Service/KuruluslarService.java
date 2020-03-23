@@ -15,7 +15,7 @@ public class KuruluslarService implements IKuruluslarService {
         this.kuruluslarDal = kuruluslarDal;
     }
 
-
+    //DOGRULATMALAR FELAN BURDA OLACAK KUCUK ISLETMELER BUNU GECIO
     @Override
     @Transactional
     public List<Kuruluslar> getAll() {
@@ -26,6 +26,7 @@ public class KuruluslarService implements IKuruluslarService {
     @Transactional
     public void add(Kuruluslar kuruluslar) {
         this.kuruluslarDal.add(kuruluslar);
+        //ıf(kuruluslar.ıd -- 5
 
     }
 

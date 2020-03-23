@@ -17,6 +17,7 @@ public class MusteriController {
         this.musteriService = musteriService;
     }
     @GetMapping("/musteriler")
+    @CrossOrigin(origins = "http://localhost:4200/personelIndex")
     public List<Musteri> get (){
         System.out.println(this.musteriService.getAll().size());
         return this.musteriService.getAll();

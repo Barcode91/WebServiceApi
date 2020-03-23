@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/sirket")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SirketController {
     private ISirketService sirketService;
     @Autowired
@@ -16,14 +17,16 @@ public class SirketController {
         this.sirketService = sirketService;
     }
     @GetMapping("/sirketler")
+    @CrossOrigin(origins = "http://localhost:4200x")
     public List<Sirket> get (){
-        System.out.println(this.sirketService.getAll().size());
+        System.out.println("REST API GET FUNCTION ");
         return this.sirketService.getAll();
 
     }
 
     @PostMapping("/add")
     public void add(@RequestBody Sirket sirket){
+        System.out.println("REST API ADD FUNCTION ");
         this.sirketService.add(sirket);
     }
 

@@ -12,7 +12,7 @@ public class Musteri {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // id değerninin üretileceği ifade edilir
     private int id;
 
-    @Column(name="tcNo")
+    @Column(name="tc_no")
     private String tcNo;
 
     @Column(name="kimlik")
@@ -50,6 +50,14 @@ public class Musteri {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getSifre() {
+        return sifre;
+    }
+
+    public void setSifre(String sifre) {
+        this.sifre = sifre;
     }
 
     public String getTcNo() {

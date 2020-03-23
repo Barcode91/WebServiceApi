@@ -12,7 +12,7 @@ public class Musteri {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // id değerninin üretileceği ifade edilir
     private int id;
 
-    @Column(name="tcNo")
+    @Column(name="tc_no")
     private String tcNo;
 
     @Column(name="kimlik")
@@ -21,11 +21,14 @@ public class Musteri {
     @Column(name="eposta")
     private String eposta;
 
-    @Column(name="reklamNo")
+    @Column(name="reklam_no")
     private String reklamNo;
 
-    @Column(name="sireketNo")
+    @Column(name="sirket_no")
     private String sirketNO;
+
+    @Column(name="sifre")
+    private String sifre;
 
     public Musteri(){}
     public Musteri(int id, String tcNo, String kimlik, String eposta, String reklamNo, String sirketNO) {
@@ -43,6 +46,14 @@ public class Musteri {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getSifre() {
+        return sifre;
+    }
+
+    public void setSifre(String sifre) {
+        this.sifre = sifre;
     }
 
     public String getTcNo() {

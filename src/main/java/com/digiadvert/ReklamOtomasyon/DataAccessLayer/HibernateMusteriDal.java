@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import java.util.List;
 @Repository
 public class HibernateMusteriDal implements IMusteriDal {
@@ -57,6 +58,23 @@ public class HibernateMusteriDal implements IMusteriDal {
         Session session = entityManager.unwrap(Session.class);
         Musteri musteri = session.get(Musteri.class,id);
         return musteri;
+    }
+
+    @Override
+    public Musteri logInControl(String tcNo, String sifre) {
+        Session session = entityManager.unwrap(Session.class);
+        Musteri musteri =null;
+        try {
+           musteri = session.createQuery("from Musteri m where m.tcNo= :tc and m.sifre=:pass",Musteri.class)
+                    .setParameter("tc",tcNo)
+                    .setParameter("pass",sifre).getSingleResult();
+
+        } catch (NoResultException e){
+            musteri=new Musteri();
+            musteri.setId(0);
+        }
+            return musteri;
+
     }
 
 

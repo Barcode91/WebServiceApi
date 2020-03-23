@@ -45,5 +45,13 @@ public class MusteriController {
         return this.musteriService.getById(id);
 
     }
+    @PostMapping("/login/{tcNo},{sifre}")
+    public Musteri login(@PathVariable String tcNo, @PathVariable String sifre ) {
+        return this.musteriService.logInControl(tcNo,sifre);
+
+        // müsteri id 0 dönerse müşteri yok
+        // 0 dan farklı dönerse müşteri class döner
+
+    }
 
 }

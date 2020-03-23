@@ -10,4 +10,6 @@ public interface IMusteriService {
     void update(Musteri musteri);
     void delete (Musteri musteri);
     Musteri getById(int id);
+    //void hashleme(Musteri musteri);
+    Musteri logInControl(String tcNo,String sifre);
 }

@@ -31,13 +31,14 @@ public class Musteri {
     private String sifre;
 
     public Musteri(){}
-    public Musteri(int id, String tcNo, String kimlik, String eposta, String reklamNo, String sirketNO) {
+    public Musteri(int id, String tcNo, String kimlik, String eposta, String sifre ,String reklamNo, String sirketNO) {
         this.id = id;
         this.tcNo = tcNo;
         this.kimlik = kimlik;
         this.eposta = eposta;
         this.reklamNo = reklamNo;
         this.sirketNO = sirketNO;
+        this.sifre=sifre;
     }
 
     public int getId() {

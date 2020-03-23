@@ -18,7 +18,7 @@ public class SirketController {
         this.sirketService = sirketService;
     }
     @GetMapping("/sirketler")
-    @CrossOrigin(origins = "http://localhost:4200x")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Sirket> get (){
         System.out.println("REST API GET FUNCTION ");
         return this.sirketService.getAll();

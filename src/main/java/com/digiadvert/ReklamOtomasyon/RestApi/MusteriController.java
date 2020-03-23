@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/musteri")
+@CrossOrigin(origins = "http://localhost:4200")
 public class MusteriController {
     private IMusteriService musteriService;
 
@@ -17,7 +18,7 @@ public class MusteriController {
         this.musteriService = musteriService;
     }
     @GetMapping("/musteriler")
-    @CrossOrigin(origins = "http://localhost:4200/personelIndex")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Musteri> get (){
         System.out.println(this.musteriService.getAll().size());
         return this.musteriService.getAll();
@@ -26,6 +27,7 @@ public class MusteriController {
 
     @PostMapping("/add")
     public void add(@RequestBody Musteri musteri){
+        System.out.println("MUSTERI ADD REST API FUNCTION ");
         this.musteriService.add(musteri);
     }
 

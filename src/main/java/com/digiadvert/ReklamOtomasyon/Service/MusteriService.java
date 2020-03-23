@@ -5,9 +5,11 @@ import com.digiadvert.ReklamOtomasyon.HibernateEntities.Musteri;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 @Service
+@CrossOrigin(origins = "http://localhost:4200")
 public class MusteriService implements IMusteriService {
     private IMusteriDal musteriDal;
     @Autowired
@@ -24,6 +26,7 @@ public class MusteriService implements IMusteriService {
     @Override
     @Transactional
     public void add(Musteri musteri) {
+        System.out.println("MUSTERI SERVICE ADD FUNCTION ");
         this.musteriDal.add(musteri);
 
     }

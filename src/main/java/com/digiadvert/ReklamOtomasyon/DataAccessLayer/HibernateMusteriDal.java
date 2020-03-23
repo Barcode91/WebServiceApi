@@ -5,10 +5,12 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 @Repository
+@CrossOrigin(origins = "http://localhost:4200")
 public class HibernateMusteriDal implements IMusteriDal {
     // Musteri nesnesi için hibernate operasyonlarının yazıldığı sınıf
     private EntityManager entityManager;
@@ -32,6 +34,7 @@ public class HibernateMusteriDal implements IMusteriDal {
     @Override
     public void add(Musteri musteri) { // müşteri eklenir
         Session session = entityManager.unwrap(Session.class);
+        System.out.println("MUSTERI  DAALL ADDD FUNCTION ");
         session.saveOrUpdate(musteri);
 
 
@@ -40,6 +43,7 @@ public class HibernateMusteriDal implements IMusteriDal {
     @Override
     public void update(Musteri musteri) { // müşteri güncellenir
         Session session = entityManager.unwrap(Session.class);
+
         session.saveOrUpdate(musteri);
 
     }

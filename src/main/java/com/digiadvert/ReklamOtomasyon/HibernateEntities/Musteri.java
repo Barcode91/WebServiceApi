@@ -21,20 +21,27 @@ public class Musteri {
     @Column(name="eposta")
     private String eposta;
 
-    @Column(name="reklamNo")
-    private String reklamNo;
 
-    @Column(name="sireketNo")
+    @Column(name="sifre")
+    private String sifre;
+
+
+    @Column(name="sirket_no")
     private String sirketNO;
 
+    @Column(name="reklam_no")
+    private String reklamNo;
+
+
     public Musteri(){}
-    public Musteri(int id, String tcNo, String kimlik, String eposta, String reklamNo, String sirketNO) {
+    public Musteri(int id, String tcNo, String kimlik, String eposta, String reklamNo, String sirketNO,String sifre) {
         this.id = id;
         this.tcNo = tcNo;
         this.kimlik = kimlik;
         this.eposta = eposta;
         this.reklamNo = reklamNo;
         this.sirketNO = sirketNO;
+        this.sifre = sifre;
     }
 
     public int getId() {
@@ -83,5 +90,13 @@ public class Musteri {
 
     public void setSirketNO(String sirketNO) {
         this.sirketNO = sirketNO;
+    }
+
+    public void setSifre(String sifre) {
+        this.sifre = sifre;
+    }
+
+    public String getSifre() {
+        return sifre;
     }
 }

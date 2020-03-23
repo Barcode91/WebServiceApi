@@ -47,7 +47,8 @@ public class HibernateMusteriDal implements IMusteriDal {
     @Override
     public void delete(Musteri musteri) { // müşteri silinir
         Session session = entityManager.unwrap(Session.class);
-        session.delete(musteri);
+        Musteri musteriToDelete = session.get(Musteri.class,musteri.getId());
+        session.delete(musteriToDelete);
 
     }
 

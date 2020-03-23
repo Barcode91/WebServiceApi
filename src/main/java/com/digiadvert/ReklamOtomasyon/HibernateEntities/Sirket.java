@@ -27,8 +27,10 @@ public class Sirket {
 
     @Column(name="sirketTelNo")
     private String sirketTelNo;
+
     public Sirket (){}
-    public Sirket(String sirketNo, String sirketAdi, String sirketAdresi, String sirketSektoru, String sirketButcesi, String sirketTelNo) {
+    public Sirket(int id, String sirketNo, String sirketAdi, String sirketAdresi, String sirketSektoru, String sirketButcesi, String sirketTelNo) {
+        this.id = id;
         this.sirketNo = sirketNo;
         this.sirketAdi = sirketAdi;
         this.sirketAdresi = sirketAdresi;

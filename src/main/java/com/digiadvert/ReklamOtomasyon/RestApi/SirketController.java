@@ -2,6 +2,7 @@ package com.digiadvert.ReklamOtomasyon.RestApi;
 
 import com.digiadvert.ReklamOtomasyon.HibernateEntities.Sirket;
 import com.digiadvert.ReklamOtomasyon.Service.ISirketService;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +42,7 @@ public class SirketController {
 
 
     }
-    @GetMapping("/musteriler/{id}")
+    @GetMapping("/sirketler/{id}")
     public Sirket getId (@PathVariable int id){
         System.out.println(this.sirketService.getAll().size());
         return this.sirketService.getById(id);

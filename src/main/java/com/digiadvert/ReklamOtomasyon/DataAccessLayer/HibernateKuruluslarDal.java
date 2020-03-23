@@ -45,7 +45,8 @@ public class HibernateKuruluslarDal implements IKuruluslarDal {
     @Transactional
     public void delete(Kuruluslar kuruluslar) {
         Session session = entityManager.unwrap(Session.class);
-        session.delete(kuruluslar);
+        Kuruluslar kuruluslarToDelete = session.get(Kuruluslar.class,kuruluslar.getId());
+        session.delete(kuruluslarToDelete);
 
     }
 

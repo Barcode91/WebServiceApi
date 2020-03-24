@@ -5,9 +5,11 @@ import com.digiadvert.ReklamOtomasyon.HibernateEntities.Reklamlar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 @Service
+@CrossOrigin(origins = "http://localhost:4200")
 public class ReklamlarService implements IReklamlarService {
 
     private IReklamlarDal reklamlarDal;

@@ -9,6 +9,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/personel")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PersonelController {
     private IPersonelService personelService;
     @Autowired

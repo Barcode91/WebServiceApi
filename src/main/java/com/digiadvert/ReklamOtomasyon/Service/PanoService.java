@@ -5,10 +5,12 @@ import com.digiadvert.ReklamOtomasyon.HibernateEntities.Pano;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @Service
+@CrossOrigin(origins = "http://localhost:4200")
 public class PanoService implements IPanoService{
     private IPanoDal panoDal;
     @Autowired

@@ -5,11 +5,14 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import java.util.List;
 
 @Repository
+@CrossOrigin(origins = "http://localhost:4200")
 public class HibernatePersonelDal implements IPersonelDal {
     private EntityManager entityManager;
     @Autowired

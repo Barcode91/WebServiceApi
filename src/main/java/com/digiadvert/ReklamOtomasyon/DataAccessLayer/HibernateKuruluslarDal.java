@@ -5,10 +5,12 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 //sanal sql komutlarını yazcağın data yonetcegın yer
 import javax.persistence.EntityManager;
 import java.util.List;
 @Repository
+@CrossOrigin(origins = "http://localhost:4200")
 public class HibernateKuruluslarDal implements IKuruluslarDal {
     private EntityManager entityManager;
     @Autowired // otomatık baglamaya yarıyo hıbernet mı yoksa entıtyfrıre mı

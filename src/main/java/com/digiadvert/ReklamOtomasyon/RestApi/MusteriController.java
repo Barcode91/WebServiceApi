@@ -18,7 +18,7 @@ public class MusteriController {
     }
     @GetMapping("/musteriler")
     public List<Musteri> get (){
-        System.out.println(this.musteriService.getAll().size());
+        //System.out.println(this.musteriService.getAll().size());
         return this.musteriService.getAll();
 
     }
@@ -39,7 +39,7 @@ public class MusteriController {
 
 
     }
-    @GetMapping("/musteriler/{id}")
+    @GetMapping("/{id}")
     public Musteri getId (@PathVariable int id){
         System.out.println(this.musteriService.getAll().size());
         return this.musteriService.getById(id);

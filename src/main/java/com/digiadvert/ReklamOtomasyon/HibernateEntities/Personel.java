@@ -15,7 +15,7 @@ public class Personel {
     @Column(name="kimlik")
     private String kimlik;
 
-    @Column(name="telNo")
+    @Column(name="tel_no")
     private String telNo;
 
     @Column(name="eposta")
@@ -24,15 +24,26 @@ public class Personel {
     @Column(name="maas")
     private String maas;
 
-    @Column(name="pNo")
+    @Column(name="p_no")
     private String pNo;
+
+    @Column(name="sifre")
+    private String sifre;
+
+    @Column(name="tc_no")
+    private String tcNo;
+
+
+
     public Personel (){}
-    public Personel(String kimlik, String telNo, String eposta, String maas, String pNo) {
+    public Personel(String kimlik, String telNo, String eposta, String maas, String pNo, String sifre, String tcNo) {
         this.kimlik = kimlik;
         this.telNo = telNo;
         this.eposta = eposta;
         this.maas = maas;
         this.pNo = pNo;
+        this.sifre=sifre;
+        this.tcNo=tcNo;
     }
 
     public int getId() {
@@ -81,6 +92,22 @@ public class Personel {
 
     public void setpNo(String pNo) {
         this.pNo = pNo;
+    }
+
+    public String getSifre() {
+        return sifre;
+    }
+
+    public void setSifre(String sifre) {
+        this.sifre = sifre;
+    }
+
+    public String getTcNo() {
+        return tcNo;
+    }
+
+    public void setTcNo(String tcNo) {
+        this.tcNo = tcNo;
     }
 }
 

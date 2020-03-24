@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/personel")
@@ -46,9 +47,9 @@ public class PersonelController {
     }
 
 
-    @PostMapping("/login/{tcNo},{sifre}")
-    public Personel login(@PathVariable String tcNo, @PathVariable String sifre ) {
-        return this.personelService.logInControl(tcNo,sifre);
+    @PostMapping("/login") // json halinde post isteği atılır
+    public Personel login(@RequestBody Map<String,String>value)  {
+        return this.personelService.logInControl(value.get("tcNo"),value.get("sifre"));
 
         // müsteri id 0 dönerse müşteri yok
         // 0 dan farklı dönerse müşteri class döner

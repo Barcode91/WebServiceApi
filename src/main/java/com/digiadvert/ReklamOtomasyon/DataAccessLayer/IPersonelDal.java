@@ -1,5 +1,6 @@
 package com.digiadvert.ReklamOtomasyon.DataAccessLayer;
 
+import com.digiadvert.ReklamOtomasyon.HibernateEntities.Musteri;
 import com.digiadvert.ReklamOtomasyon.HibernateEntities.Personel;
 
 import java.util.List;
@@ -10,5 +11,6 @@ public interface IPersonelDal {
     void update(Personel personel);
     void delete (Personel personel);
     Personel getById(int id);
+    Personel logInControl(String tcNo, String sifre);
 
 }

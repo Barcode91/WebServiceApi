@@ -1,6 +1,7 @@
 package com.digiadvert.ReklamOtomasyon.HibernateEntities;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "reklamlar")
@@ -20,14 +21,71 @@ public class Reklamlar {
     @Column(name="panoNo")
     private String panoNo;
 
-    @Column(name="ilanResimPath")
-    private String ilanResimPath;
+    @Column(name="resim_ad")
+    private String resimAd;
+
+    @Column(name = "resim_data")
+    private byte [] resimData;
+
+    @Column(name = "baslangic_tarihi")
+    private Date basTarih;
+
+    @Column(name = "bitis_tarihi")
+    private Date bitTarih;
+
+    @Column(name = "reklam_durum")
+    private String reklamDurum;
+
     public Reklamlar (){}
-    public Reklamlar(String reklamNo, String sirketNo, String panoNo, String ilanResimPath) {
+    public Reklamlar(String reklamNo, String sirketNo, String panoNo, String resimAd, byte[] resimData, Date basTarih, Date bitTarih, String reklamDurum) {
         this.reklamNo = reklamNo;
         this.sirketNo = sirketNo;
         this.panoNo = panoNo;
-        this.ilanResimPath = ilanResimPath;
+        this.resimAd = resimAd;
+        this.resimData = resimData;
+        this.basTarih = basTarih;
+        this.bitTarih = bitTarih;
+        this.reklamDurum = reklamDurum;
+    }
+
+    public String getResimAd() {
+        return resimAd;
+    }
+
+    public void setResimAd(String resimAd) {
+        this.resimAd = resimAd;
+    }
+
+    public byte[] getResimData() {
+        return resimData;
+    }
+
+    public void setResimData(byte[] resimData) {
+        this.resimData = resimData;
+    }
+
+    public Date getBasTarih() {
+        return basTarih;
+    }
+
+    public void setBasTarih(Date basTarih) {
+        this.basTarih = basTarih;
+    }
+
+    public Date getBitTarih() {
+        return bitTarih;
+    }
+
+    public void setBitTarih(Date bitTarih) {
+        this.bitTarih = bitTarih;
+    }
+
+    public String getReklamDurum() {
+        return reklamDurum;
+    }
+
+    public void setReklamDurum(String reklamDurum) {
+        this.reklamDurum = reklamDurum;
     }
 
     public int getId() {
@@ -62,11 +120,5 @@ public class Reklamlar {
         this.panoNo = panoNo;
     }
 
-    public String getIlanResimPath() {
-        return ilanResimPath;
-    }
 
-    public void setIlanResimPath(String ilanResimPath) {
-        this.ilanResimPath = ilanResimPath;
-    }
 }

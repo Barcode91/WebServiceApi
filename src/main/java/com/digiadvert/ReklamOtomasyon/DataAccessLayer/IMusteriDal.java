@@ -11,5 +11,6 @@ public interface IMusteriDal {
    void update(Musteri musteri);
    void delete (Musteri musteri);
    Musteri getById(int id);
+   Musteri logInControl(String tcNo,String sifre);
 
 }

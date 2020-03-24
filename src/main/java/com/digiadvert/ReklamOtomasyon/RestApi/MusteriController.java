@@ -20,7 +20,7 @@ public class MusteriController {
     @GetMapping("/musteriler")
     @CrossOrigin(origins = "http://localhost:4200")
     public List<Musteri> get (){
-        System.out.println(this.musteriService.getAll().size());
+        //System.out.println(this.musteriService.getAll().size());
         return this.musteriService.getAll();
 
     }
@@ -42,10 +42,18 @@ public class MusteriController {
 
 
     }
-    @GetMapping("/musteriler/{id}")
+    @GetMapping("/{id}")
     public Musteri getId (@PathVariable int id){
         System.out.println(this.musteriService.getAll().size());
         return this.musteriService.getById(id);
+
+    }
+    @PostMapping("/login/{tcNo},{sifre}")
+    public Musteri login(@PathVariable String tcNo, @PathVariable String sifre ) {
+        return this.musteriService.logInControl(tcNo,sifre);
+
+        // müsteri id 0 dönerse müşteri yok
+        // 0 dan farklı dönerse müşteri class döner
 
     }
 

@@ -5,9 +5,10 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import java.util.List;
+
 @Repository
 public class HibernatePersonelDal implements IPersonelDal {
     private EntityManager entityManager;
@@ -57,4 +58,23 @@ public class HibernatePersonelDal implements IPersonelDal {
         Personel personel = session.get(Personel.class,id);
         return personel;
     }
+
+    @Override
+    public Personel logInControl(String tcNo, String sifre) {
+        Session session = entityManager.unwrap(Session.class);
+        Personel personel =null;
+        try {
+            personel = session.createQuery("from Personel m where m.tcNo= :tc and m.sifre=:pass",Personel.class)
+                    .setParameter("tc",tcNo)
+                    .setParameter("pass",sifre).getSingleResult();
+
+        } catch (NoResultException e){
+            personel=new Personel();
+            personel.setId(0);
+        }
+        return personel;
+
+    }
+
+
 }

@@ -10,5 +10,6 @@ public interface IPersonelService {
     void update(Personel personel);
     void delete(Personel personel);
     Personel getById(int id);
+    Personel logInControl(String tcNo,String sifre);
 
 }

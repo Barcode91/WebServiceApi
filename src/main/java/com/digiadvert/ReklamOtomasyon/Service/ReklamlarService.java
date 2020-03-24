@@ -48,4 +48,14 @@ public class ReklamlarService implements IReklamlarService {
     public Reklamlar getById(int id) {
         return this.reklamlarDal.getById(id);
     }
+
+    @Override
+    public List<Reklamlar> getAllReklamState(String state) {
+        return this.getAllReklamState(state);
+    }
+
+    @Override
+    public Reklamlar getMusteriReklamState(String reklamNo) {
+        return this.getMusteriReklamState(reklamNo);
+    }
 }

@@ -11,4 +11,6 @@ public interface IReklamlarService {
     void update(Reklamlar reklamlar);
     void delete(Reklamlar reklamlar);
     Reklamlar getById(int id);
+    List<Reklamlar> getAllReklamState(String state);
+    Reklamlar getMusteriReklamState(String reklamNo);
 }

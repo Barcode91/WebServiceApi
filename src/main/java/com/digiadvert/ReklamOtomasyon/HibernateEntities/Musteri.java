@@ -100,11 +100,4 @@ public class Musteri {
         this.sirketNO = sirketNO;
     }
 
-    public void setSifre(String sifre) {
-        this.sifre = sifre;
-    }
-
-    public String getSifre() {
-        return sifre;
-    }
 }

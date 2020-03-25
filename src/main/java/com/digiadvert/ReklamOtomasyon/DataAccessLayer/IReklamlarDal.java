@@ -12,5 +12,5 @@ public interface IReklamlarDal {
     void delete (Reklamlar reklamlar);
     Reklamlar getById(int id);
     List<Reklamlar> getAllReklamState(String state);
-    Reklamlar getMusteriReklamState(String reklamNo);
+    List<Reklamlar> getMusteriReklamState(String musteriNo);
 }

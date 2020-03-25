@@ -17,6 +17,9 @@ public class Reklamlar {
     @Column(name="reklamNo")
     private String reklamNo;
 
+    @Column(name="musteriNo")
+    private String musteriNo;
+
     @Column(name="sirketNo")
     private String sirketNo;
 
@@ -42,7 +45,7 @@ public class Reklamlar {
 
     public Reklamlar (){}
 
-    public Reklamlar(String reklamNo, String sirketNo, String panoNo, String resimPath, Date basTarih, Date bitTarih, String reklamDurum, byte[] resimData) {
+    public Reklamlar(String musteriNo,String reklamNo, String sirketNo, String panoNo, String resimPath, Date basTarih, Date bitTarih, String reklamDurum, byte[] resimData) {
         this.reklamNo = reklamNo;
         this.sirketNo = sirketNo;
         this.panoNo = panoNo;
@@ -51,6 +54,7 @@ public class Reklamlar {
         this.bitTarih = bitTarih;
         this.reklamDurum = reklamDurum;
         this.resimData = resimData;
+        this.musteriNo = musteriNo;
         //this.imageFile = imageFile;
     }
 
@@ -120,6 +124,14 @@ public class Reklamlar {
 
     public byte[] getResimData() {
         return resimData;
+    }
+
+    public String getMusteriNo() {
+        return musteriNo;
+    }
+
+    public void setMusteriNo(String musteriNo) {
+        this.musteriNo = musteriNo;
     }
 
     public void setResimData(byte[] resimData) {

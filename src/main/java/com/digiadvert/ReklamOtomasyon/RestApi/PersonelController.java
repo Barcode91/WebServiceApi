@@ -48,9 +48,9 @@ public class PersonelController {
     }
 
 
-    @PostMapping("/login") // json halinde post isteği atılır
-    public Personel login(@RequestBody Map<String,String>value)  {
-        return this.personelService.logInControl(value.get("tcNo"),value.get("sifre"));
+    @PostMapping("/login/{tcNo},{sifre}") // json halinde post isteği atılır
+    public Personel login(@PathVariable String tcNo, @PathVariable String sifre)  {
+        return this.personelService.logInControl(tcNo,sifre);
 
         // müsteri id 0 dönerse müşteri yok
         // 0 dan farklı dönerse müşteri class döner

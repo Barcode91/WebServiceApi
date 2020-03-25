@@ -13,6 +13,6 @@ public interface IReklamlarService {
     void delete(Reklamlar reklamlar);
     Reklamlar getById(int id);
     List<Reklamlar> getAllReklamState(String state);
-    Reklamlar getMusteriReklamState(String reklamNo);
+    List<Reklamlar> getMusteriReklamState(String musteriNo);
     String saveImage(MultipartFile imageFile) throws Exception;
 }

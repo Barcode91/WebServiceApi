@@ -66,12 +66,12 @@ public class ReklamlarService implements IReklamlarService {
 
     @Override
     public List<Reklamlar> getAllReklamState(String state) {
-        return this.getAllReklamState(state);
+        return this.reklamlarDal.getAllReklamState(state);
     }
 
     @Override
-    public Reklamlar getMusteriReklamState(String reklamNo) {
-        return this.getMusteriReklamState(reklamNo);
+    public List<Reklamlar> getMusteriReklamState(String musteriNo) {
+        return this.reklamlarDal.getMusteriReklamState(musteriNo);
     }
 
     @Override

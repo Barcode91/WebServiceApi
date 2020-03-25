@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/reklam")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ReklamlarController {
     private IReklamlarService reklamlarService;
     @Autowired
@@ -74,9 +75,9 @@ public class ReklamlarController {
     }
 
     @GetMapping("/musteri") //localhost:8082/api/reklam/musteri/?state=12323
-    public Reklamlar getCliAdvState(@RequestParam String reklamNo){
+    public List<Reklamlar> getCliAdvState(@RequestParam String musteriNo){
         //müşterinin bir reklamı getirilir Zaten bir tane reklam verebiliyor gibi gözüküyor :))))
-        return this.reklamlarService.getMusteriReklamState(reklamNo);
+        return this.reklamlarService.getMusteriReklamState(musteriNo);
     }
     @PostMapping("/upload")
     public String UploadImage(@RequestParam ("imageFile") MultipartFile imageFile){

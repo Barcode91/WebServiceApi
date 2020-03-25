@@ -31,6 +31,7 @@ public class MusteriService implements IMusteriService {
     @Transactional
     public void add(Musteri musteri) {
         System.out.println("MUSTERI SERVICE ADD FUNCTION ");
+        hashleme(musteri);
         this.musteriDal.add(musteri);
 
     }
@@ -65,6 +66,7 @@ public class MusteriService implements IMusteriService {
 
     public void hashleme(Musteri musteri) {
         try {
+            System.out.println("Musteri nesnesi geldi");
             musteri.setSifre(stringToHexString(getSHA(musteri.getSifre())));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -79,6 +81,7 @@ public class MusteriService implements IMusteriService {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+        System.out.println(hashToString);
         return hashToString;
 
     }

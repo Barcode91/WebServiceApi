@@ -66,10 +66,10 @@ public class HibernateReklamlarDal implements IReklamlarDal {
     }
 
     @Override
-    public Reklamlar getMusteriReklamState(String reklamNo) { // müşterinin sadece bir reklamını getir.
+    public List<Reklamlar> getMusteriReklamState(String musteriNo) { // müşterinin sadece bir reklamını getir.
         Session session = entityManager.unwrap(Session.class);
-        Reklamlar reklam = session.createQuery("from Reklamlar r where r.reklamNo=:rekNo",Reklamlar.class)
-                .setParameter("rekNo",reklamNo).getSingleResult();
+        List<Reklamlar> reklam = session.createQuery("from Reklamlar r where r.musteriNo=:musNo",Reklamlar.class)
+                .setParameter("musNo",musteriNo).getResultList();
         return reklam;
     }
 }

@@ -2,6 +2,7 @@ package com.digiadvert.ReklamOtomasyon.Service;
 
 
 import com.digiadvert.ReklamOtomasyon.HibernateEntities.Reklamlar;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface IReklamlarService {
     Reklamlar getById(int id);
     List<Reklamlar> getAllReklamState(String state);
     Reklamlar getMusteriReklamState(String reklamNo);
+    String saveImage(MultipartFile imageFile) throws Exception;
 }

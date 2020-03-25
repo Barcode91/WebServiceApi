@@ -1,5 +1,7 @@
 package com.digiadvert.ReklamOtomasyon.HibernateEntities;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -21,11 +23,8 @@ public class Reklamlar {
     @Column(name="panoNo")
     private String panoNo;
 
-    @Column(name="resim_ad")
-    private String resimAd;
-
-    @Column(name = "resim_data")
-    private byte [] resimData;
+    @Column(name="resim_path")
+    private String resimPath;
 
     @Column(name = "baslangic_tarihi")
     private Date basTarih;
@@ -36,56 +35,23 @@ public class Reklamlar {
     @Column(name = "reklam_durum")
     private String reklamDurum;
 
+    @Column(name = "resim_data")
+    private byte [] resimData;
+
+    //private MultipartFile imageFile;
+
     public Reklamlar (){}
-    public Reklamlar(String reklamNo, String sirketNo, String panoNo, String resimAd, byte[] resimData, Date basTarih, Date bitTarih, String reklamDurum) {
+
+    public Reklamlar(String reklamNo, String sirketNo, String panoNo, String resimPath, Date basTarih, Date bitTarih, String reklamDurum, byte[] resimData) {
         this.reklamNo = reklamNo;
         this.sirketNo = sirketNo;
         this.panoNo = panoNo;
-        this.resimAd = resimAd;
-        this.resimData = resimData;
+        this.resimPath = resimPath;
         this.basTarih = basTarih;
         this.bitTarih = bitTarih;
         this.reklamDurum = reklamDurum;
-    }
-
-    public String getResimAd() {
-        return resimAd;
-    }
-
-    public void setResimAd(String resimAd) {
-        this.resimAd = resimAd;
-    }
-
-    public byte[] getResimData() {
-        return resimData;
-    }
-
-    public void setResimData(byte[] resimData) {
         this.resimData = resimData;
-    }
-
-    public Date getBasTarih() {
-        return basTarih;
-    }
-
-    public void setBasTarih(Date basTarih) {
-        this.basTarih = basTarih;
-    }
-
-    public Date getBitTarih() {
-        return bitTarih;
-    }
-
-    public void setBitTarih(Date bitTarih) {
-        this.bitTarih = bitTarih;
-    }
-
-    public String getReklamDurum() {
-        return reklamDurum;
-    }
-
-    public void setReklamDurum(String reklamDurum) {
-        this.reklamDurum = reklamDurum;
+        //this.imageFile = imageFile;
     }
 
     public int getId() {
@@ -120,5 +86,54 @@ public class Reklamlar {
         this.panoNo = panoNo;
     }
 
+    public String getResimPath() {
+        return resimPath;
+    }
 
+    public void setResimPath(String resimPath) {
+        this.resimPath = resimPath;
+    }
+
+    public Date getBasTarih() {
+        return basTarih;
+    }
+
+    public void setBasTarih(Date basTarih) {
+        this.basTarih = basTarih;
+    }
+
+    public Date getBitTarih() {
+        return bitTarih;
+    }
+
+    public void setBitTarih(Date bitTarih) {
+        this.bitTarih = bitTarih;
+    }
+
+    public String getReklamDurum() {
+        return reklamDurum;
+    }
+
+    public void setReklamDurum(String reklamDurum) {
+        this.reklamDurum = reklamDurum;
+    }
+
+    public byte[] getResimData() {
+        return resimData;
+    }
+
+    public void setResimData(byte[] resimData) {
+        this.resimData = resimData;
+    }
+
+    /*
+    public MultipartFile getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(MultipartFile imageFile) {
+        this.imageFile = imageFile;
+    }
+
+     */
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 @Repository
@@ -38,7 +39,18 @@ public class HibernatePanoDal implements IPanoDal {
     @Transactional
     public void update(Pano pano) {
         Session session = entityManager.unwrap(Session.class);
-        session.saveOrUpdate(pano);
+        session.update(pano);
+
+    }
+
+    @Override
+    @Transactional
+    public void updateByPanoNo(String panoNo , String aktiflikDurumu) {
+        Session session = entityManager.unwrap(Session.class);
+        Query query = session.createQuery("UPDATE Pano p SET p.aktiflikDurumu = :aktiflikDurumu  where p.panoNo = :panoNo  ");
+            query.setParameter("aktiflikDurumu",aktiflikDurumu);
+            query.setParameter("panoNo",panoNo);
+        query.executeUpdate();
 
     }
 

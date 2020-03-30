@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.List;
 @Repository
 @CrossOrigin(origins = "http://localhost:4200")
@@ -48,6 +49,16 @@ public class HibernateReklamlarDal implements IReklamlarDal {
         Session session = entityManager.unwrap(Session.class);
         session.delete(reklamlar);
 
+    }
+
+    @Override
+    @Transactional
+    public void updateByReklamNo(String reklamNo, String aktiflikDurumu) {
+        Session session = entityManager.unwrap(Session.class);
+        Query query = session.createQuery("UPDATE Reklamlar p SET p.reklamDurum = :aktiflikDurumu  where p.reklamNo = :reklamNo ");
+        query.setParameter("aktiflikDurumu",aktiflikDurumu);
+        query.setParameter("reklamNo",reklamNo);
+        query.executeUpdate();
     }
 
     @Override

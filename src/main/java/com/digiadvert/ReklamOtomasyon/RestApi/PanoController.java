@@ -31,6 +31,10 @@ public class PanoController {
     public void update(@RequestBody Pano pano){
         this.panoService.update(pano);
     }
+    @PostMapping("/updateByPanoNo/{panoNo},{aktiflikDurumu}")
+    public void updateByPanoNo(@PathVariable String panoNo,@PathVariable String aktiflikDurumu) {
+        this.panoService.updateByPanoNo(panoNo,aktiflikDurumu);
+    }
 
     @PostMapping("/delete")
     public void delete(@RequestBody Pano pano){

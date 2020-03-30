@@ -27,10 +27,10 @@ public class ReklamlarController {
         System.out.println(this.reklamlarService.getAll().size());
         return this.reklamlarService.getAll();
     }
-
+/*
     @PostMapping("/add") // postman form-data kısmında bir adet resim ve 1 adet json dosyası ile test edilir
-    public void add(@RequestPart ("reklamlar") Reklamlar reklamlar, @RequestPart ("imageFile") MultipartFile imageFile ) throws IOException {
-        System.out.println(imageFile.getContentType()+imageFile.getOriginalFilename());
+    public void add(@RequestPart Reklamlar reklamlar) {
+         System.out.println(imageFile.getContentType()+imageFile.getOriginalFilename());  @RequestPart ("imageFile") MultipartFile imageFile
         byte[] bytes = imageFile.getBytes();
         reklamlar.setResimData(bytes);
         this.reklamlarService.add(reklamlar);
@@ -43,19 +43,22 @@ public class ReklamlarController {
         byte[] bytes = imageFile.getBytes();
         reklamlar.setResimData(bytes);
         this.reklamlarService.update(reklamlar);
-    }
-
-    /*@PostMapping("/add")
+    }*/
+    @PostMapping("/add")
     public void add(@RequestBody Reklamlar reklamlar )  {
         this.reklamlarService.add(reklamlar);
     }
 
+    @PostMapping("/updateByReklamNo/{reklamNo},{aktiflikDurumu}")
+    public void updateByReklamNo(@PathVariable String reklamNo,@PathVariable String aktiflikDurumu) {
+        this.reklamlarService.updateByReklamNo(reklamNo,aktiflikDurumu);
+    }
 
     @PostMapping("/update")
     public void update(@RequestBody Reklamlar reklamlar){
         this.reklamlarService.add(reklamlar);
     }
-    */
+
     @PostMapping("/delete")
     public void delete(@RequestBody Reklamlar reklamlar){
         this.reklamlarService.add(reklamlar);
@@ -80,6 +83,7 @@ public class ReklamlarController {
         return this.reklamlarService.getMusteriReklamState(musteriNo);
     }
     @PostMapping("/upload")
+    @CrossOrigin(origins = "http://localhost:4200")
     public String UploadImage(@RequestParam ("imageFile") MultipartFile imageFile){
         String path=null;
         try { //  POSTMAN -> POST METODU BODY SEÇİLİR FORM-DATA SEÇİLİR KEY=İMAGEFİLE VALUE İSE FİLE SEÇİLİR.

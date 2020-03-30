@@ -36,6 +36,12 @@ public class PanoService implements IPanoService{
     }
     @Transactional
     @Override
+    public void updateByPanoNo(String panoNo, String aktiflikDurumu) {
+        panoDal.updateByPanoNo(panoNo,aktiflikDurumu);
+    }
+
+    @Transactional
+    @Override
     public void delete(Pano pano) {
         this.panoDal.delete(pano);
 

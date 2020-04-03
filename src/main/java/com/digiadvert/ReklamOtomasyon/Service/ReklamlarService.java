@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.multipart.MultipartFile;
 
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -34,7 +38,7 @@ public class ReklamlarService implements IReklamlarService {
 
     @Override
     @Transactional
-    public void add(Reklamlar reklamlar) {
+    public void add(Reklamlar reklamlar) throws IOException {
         /*
         try {
             byte[] bytes = reklamlar.getImageFile().getBytes();
@@ -42,6 +46,10 @@ public class ReklamlarService implements IReklamlarService {
         } catch (IOException e) {
             e.printStackTrace();
         } */
+
+            resimDataEkle(reklamlar);
+
+
         this.reklamlarDal.add(reklamlar);
     }
 
@@ -99,6 +107,23 @@ public class ReklamlarService implements IReklamlarService {
 
 
         return resimPath; // resimin kayıt yolu döndürülür.
+    }
+
+
+    @Override
+    public List<Reklamlar> getPanoReklam(String panoNo) {
+        return this.reklamlarDal.getPanoReklam(panoNo);
+    }
+
+    @Override
+    public void resimDataEkle(Reklamlar reklamlar) throws IOException { // klasörde olan resmi database ekler :)))
+        String path = reklamlar.getResimPath();
+        BufferedImage res = ImageIO.read(new File(path));
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ImageIO.write(res,"jpg",bos);
+        byte [] resimbyte = bos.toByteArray();
+        reklamlar.setResimData(resimbyte);
+
     }
 
 

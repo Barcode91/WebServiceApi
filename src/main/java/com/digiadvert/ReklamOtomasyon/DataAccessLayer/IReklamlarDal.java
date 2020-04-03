@@ -14,4 +14,5 @@ public interface IReklamlarDal {
     Reklamlar getById(int id);
     List<Reklamlar> getAllReklamState(String state);
     List<Reklamlar> getMusteriReklamState(String musteriNo);
+    List<Reklamlar> getPanoReklam(String panoNo);
 }

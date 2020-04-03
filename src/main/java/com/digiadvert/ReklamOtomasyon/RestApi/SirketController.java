@@ -39,6 +39,7 @@ public class SirketController {
     }
     @PostMapping("/delete")
     public void delete(@RequestBody Sirket sirket){
+
         this.sirketService.delete(sirket);
 
 

@@ -45,7 +45,7 @@ public class ReklamlarController {
         this.reklamlarService.update(reklamlar);
     }*/
     @PostMapping("/add")
-    public void add(@RequestBody Reklamlar reklamlar )  {
+    public void add(@RequestBody Reklamlar reklamlar ) throws IOException {
         this.reklamlarService.add(reklamlar);
     }
 
@@ -56,12 +56,12 @@ public class ReklamlarController {
 
     @PostMapping("/update")
     public void update(@RequestBody Reklamlar reklamlar){
-        this.reklamlarService.add(reklamlar);
+        this.reklamlarService.update(reklamlar);
     }
 
     @PostMapping("/delete")
     public void delete(@RequestBody Reklamlar reklamlar){
-        this.reklamlarService.add(reklamlar);
+        this.reklamlarService.delete(reklamlar);
     }
 
     @GetMapping("/reklam/{id}")
@@ -82,6 +82,15 @@ public class ReklamlarController {
         //müşterinin bir reklamı getirilir Zaten bir tane reklam verebiliyor gibi gözüküyor :))))
         return this.reklamlarService.getMusteriReklamState(musteriNo);
     }
+
+    @PostMapping("/cihaz/reklamlar") // mac adresi gelen orange pi ye reklamlarını gönderecek
+    public List<Reklamlar> getPanoReklam(@RequestParam String panoNo){
+        return this.reklamlarService.getPanoReklam(panoNo);
+
+
+    }
+
+
     @PostMapping("/upload")
     @CrossOrigin(origins = "http://localhost:4200")
     public String UploadImage(@RequestParam ("imageFile") MultipartFile imageFile){

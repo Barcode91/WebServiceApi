@@ -87,9 +87,9 @@ public class HibernateReklamlarDal implements IReklamlarDal {
     @Override
     public List<Reklamlar> getPanoReklam(String panoNo) {
         Session session = entityManager.unwrap(Session.class);
-        List<Reklamlar> panoReklam = session.createQuery("from Reklamlar r where r.reklamDurum=:durum and" +
-                "r.panoNo=:pano",Reklamlar.class).setParameter("pano",panoNo)
-                .setParameter("durum",'a').getResultList();
+        List<Reklamlar> panoReklam = session.createQuery("from Reklamlar r where r.reklamDurum=:dur and" +
+                " r.panoNo=:pan",Reklamlar.class).setParameter("pan",panoNo)
+                .setParameter("dur","a").getResultList();
         return panoReklam;
     }
 }

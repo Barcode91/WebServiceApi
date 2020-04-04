@@ -92,14 +92,14 @@ public class ReklamlarService implements IReklamlarService {
     @CrossOrigin(origins = "http://localhost:4200")
     public String saveImage(MultipartFile imageFile) throws Exception {
         String resimPath=null;
-        String folder = "C:/Users/asus/Documents/VS CODE/reklamProjesi/reklamProjesi/src/assets/reklamFotograflari"; // serverda kayıt edilecek klasör yolu
+        String folder = "/home/memo/Desktop/"; // serverda kayıt edilecek klasör yolu
         if(imageFile.getContentType().startsWith("image")){ // dosya tipi kontolü
             byte[] bytes = imageFile.getBytes();
             Path path = Paths.get(folder+imageFile.getOriginalFilename());
             Files.write(path,bytes);
             //System.out.println(path.toString()+"    "+ path1.getFileName()+"   "+imageFile.getContentType());
             System.out.println("path verisi :"+path.toString());
-            path = Paths.get("./assets/reklamFotograflari"+imageFile.getOriginalFilename());
+            //path = Paths.get("./assets/reklamFotograflari"+imageFile.getOriginalFilename());
             resimPath=path.toString();
         }
         else

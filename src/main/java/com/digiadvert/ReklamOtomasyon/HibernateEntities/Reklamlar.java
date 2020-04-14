@@ -38,8 +38,11 @@ public class Reklamlar {
     @Column(name = "reklam_durum")
     private String reklamDurum;
 
+
     @Column(name = "resim_data")
     private byte [] resimData;
+
+
 
     //private MultipartFile imageFile;
 
@@ -137,6 +140,7 @@ public class Reklamlar {
     public void setResimData(byte[] resimData) {
         this.resimData = resimData;
     }
+
 
     /*
     public MultipartFile getImageFile() {

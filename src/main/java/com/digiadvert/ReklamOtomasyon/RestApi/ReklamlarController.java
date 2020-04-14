@@ -94,7 +94,7 @@ public class ReklamlarController {
     @PostMapping("/upload")
     @CrossOrigin(origins = "http://localhost:4200")
     public String UploadImage(@RequestParam ("imageFile") MultipartFile imageFile){
-        String path=null;
+        String  path=null ;
         try { //  POSTMAN -> POST METODU BODY SEÇİLİR FORM-DATA SEÇİLİR KEY=İMAGEFİLE VALUE İSE FİLE SEÇİLİR.
             path = this.reklamlarService.saveImage(imageFile);
         } catch (Exception e) {

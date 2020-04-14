@@ -3,7 +3,6 @@ package com.digiadvert.ReklamOtomasyon.Service;
 import com.digiadvert.ReklamOtomasyon.DataAccessLayer.IReklamlarDal;
 import com.digiadvert.ReklamOtomasyon.HibernateEntities.Reklamlar;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.parsing.PassThroughSourceExtractor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,7 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -23,7 +21,7 @@ import java.util.List;
 @Service
 @CrossOrigin(origins = "http://localhost:4200")
 public class ReklamlarService implements IReklamlarService {
-
+    private String orginalPath;
     private IReklamlarDal reklamlarDal;
     @Autowired
     public ReklamlarService(IReklamlarDal reklamlarDal) {
@@ -91,21 +89,22 @@ public class ReklamlarService implements IReklamlarService {
     @Override
     @CrossOrigin(origins = "http://localhost:4200")
     public String saveImage(MultipartFile imageFile) throws Exception {
-        String resimPath=null;
+        String  resimPath =null;
         String folder = "C:/Users/asus/Documents/VS CODE/reklamProjesi/reklamProjesi/src/assets/reklamFotograflari"; // serverda kayıt edilecek klasör yolu
         if(imageFile.getContentType().startsWith("image")){ // dosya tipi kontolü
             byte[] bytes = imageFile.getBytes();
             Path path = Paths.get(folder+imageFile.getOriginalFilename());
+            orginalPath = path.toString();
             Files.write(path,bytes);
             //System.out.println(path.toString()+"    "+ path1.getFileName()+"   "+imageFile.getContentType());
             System.out.println("path verisi :"+path.toString());
             path = Paths.get("./assets/reklamFotograflari"+imageFile.getOriginalFilename());
-            resimPath=path.toString();
+            resimPath = path.toString();
         }
-        else
-            resimPath="hata";
+        else {
+           resimPath = "hata";
 
-
+        }
         return resimPath; // resimin kayıt yolu döndürülür.
     }
 
@@ -117,11 +116,12 @@ public class ReklamlarService implements IReklamlarService {
 
     @Override
     public void resimDataEkle(Reklamlar reklamlar) throws IOException { // klasörde olan resmi database ekler :)))
-        String path = reklamlar.getResimPath();
+        String path = orginalPath;
         BufferedImage res = ImageIO.read(new File(path));
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(res,"jpg",bos);
+        ImageIO.write(res,"png",bos);
         byte [] resimbyte = bos.toByteArray();
+        System.out.println(resimbyte.length);
         reklamlar.setResimData(resimbyte);
 
     }

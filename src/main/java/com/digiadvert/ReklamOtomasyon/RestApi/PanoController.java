@@ -10,7 +10,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/pano")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://digiadvert.digital:8082")
 public class PanoController {
     private IPanoService panoService;
     @Autowired
